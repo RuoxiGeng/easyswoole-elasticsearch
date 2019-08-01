@@ -34,6 +34,7 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
             'EasySwoole\\Trigger\\' => 19,
             'EasySwoole\\Spl\\Test\\' => 20,
             'EasySwoole\\Spl\\' => 15,
+            'EasySwoole\\Mysqli\\' => 18,
             'EasySwoole\\Log\\' => 15,
             'EasySwoole\\Http\\' => 16,
             'EasySwoole\\EasySwoole\\' => 22,
@@ -96,6 +97,10 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
         'EasySwoole\\Spl\\' => 
         array (
             0 => __DIR__ . '/..' . '/easyswoole/spl/src',
+        ),
+        'EasySwoole\\Mysqli\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyswoole/mysqli/src',
         ),
         'EasySwoole\\Log\\' => 
         array (

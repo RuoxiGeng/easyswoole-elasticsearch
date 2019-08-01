@@ -129,13 +129,13 @@ abstract class Controller
         return $this->response;
     }
 
-    protected function writeJson($statusCode = 200, $result = null, $msg = null)
+    protected function writeJson($statusCode = 200, $msg = null, $result = null)
     {
         if (!$this->response()->isEndResponse()) {
             $data = Array(
                 "code" => $statusCode,
+                "message" => $msg,
                 "result" => $result,
-                "msg" => $msg
             );
             $this->response()->write(json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
             $this->response()->withHeader('Content-type', 'application/json;charset=utf-8');

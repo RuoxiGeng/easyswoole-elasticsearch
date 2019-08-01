@@ -20,6 +20,7 @@
       <path value="$PROJECT_DIR$/vendor/easyswoole/trigger" />
       <path value="$PROJECT_DIR$/vendor/easyswoole/swoole-ide-helper" />
       <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/vendor/easyswoole/mysqli" />
     </include_path>
   </component>
 </project>
