@@ -2,3 +2,17 @@
 [2019-08-01 22:54:12][DEBUG][WARNING] : [Declaration of App\HttpController\Api\Base::onRequest($action): ?bool should be compatible with EasySwoole\Http\AbstractInterface\Controller::onRequest(?string $action): ?bool at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Base.php line:18]
 [2019-08-01 22:54:32][DEBUG][WARNING] : [Declaration of App\HttpController\Api\Base::onRequest($action): ?bool should be compatible with EasySwoole\Http\AbstractInterface\Controller::onRequest(?string $action): ?bool at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Base.php line:18]
 [2019-08-01 22:55:44][DEBUG][WARNING] : [Declaration of App\HttpController\Api\Index::onRequest($action): ?bool should be compatible with App\HttpController\Api\Base::onRequest(?string $action): ?bool at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:11]
+[2019-08-01 23:13:51][DEBUG][ERROR] : [Uncaught Swoole\Coroutine\MySQL\Exception: Parameter [host] is required in :0
+Stack trace:
+#0 {main}
+
+  thrown at file:Unknown line:0]
+[2019-08-01 23:28:36][DEBUG][ERROR] : [Uncaught Swoole\Error: operation not support (reactor is not ready) in /Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php:108
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php(108): Swoole\Coroutine\MySQL->connect(Array)
+#1 /Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php(1559): EasySwoole\Mysqli\Mysqli->connect()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php(1118): EasySwoole\Mysqli\Mysqli->prepareQuery()
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php(539): EasySwoole\Mysqli\Mysqli->buildQuery(NULL)
+#4 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(31): EasySwoole\Mysqli\Mysqli->get('test')
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#6 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->crea at file:/Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php line:108]
