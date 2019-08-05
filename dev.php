@@ -15,7 +15,7 @@ return [
         'SOCK_TYPE' => SWOOLE_TCP,
         'RUN_MODEL' => SWOOLE_PROCESS,
         'SETTING' => [
-            'worker_num' => 8,
+            'worker_num' => 16,
             'task_worker_num' => 8,
             'reload_async' => true,
             'task_enable_coroutine' => true,
@@ -39,5 +39,5 @@ return [
         'alias'                => '',//子查询别名
         'isSubQuery'           => false,//是否为子查询
         'max_reconnect_times ' => '3',//最大重连次数
-    ]
+    ],
 ];

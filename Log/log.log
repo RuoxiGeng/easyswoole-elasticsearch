@@ -16,3 +16,14 @@ Stack trace:
 #4 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(31): EasySwoole\Mysqli\Mysqli->get('test')
 #5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
 #6 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->crea at file:/Users/ruoxigeng/imooc_es/vendor/easyswoole/mysqli/src/Mysqli.php line:108]
+[2019-08-05 23:04:47][DEBUG][ERROR] : [Uncaught Exception: redis服务异常 in /Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php:29
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/component/src/Singleton.php(19): App\Lib\Redis\Redis->__construct()
+#1 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(39): App\Lib\Redis\Redis::getInstance()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->createServer()
+#4 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandContainer.php(46): EasySwoole\EasySwoole\Command\DefaultCommand\Start->exec(Array)
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(50): EasySwoole\EasySwoole\Command\CommandContainer->hook('start', Array)
+#6 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\EasySwo at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:29]
+[2019-08-05 23:35:48][DEBUG][ERROR] : [Call to a member function get() on null at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:42]
+[2019-08-05 23:35:48][DEBUG][ERROR] : [Call to a member function get() on null at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:42]

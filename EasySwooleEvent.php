@@ -15,6 +15,8 @@ use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\Mysqli\Mysqli;
+use App\Lib\Redis\Redis;
+use EasySwoole\Utility\File;
 
 class EasySwooleEvent implements Event
 {
@@ -23,6 +25,22 @@ class EasySwooleEvent implements Event
     {
         // TODO: Implement initialize() method.
         date_default_timezone_set('Asia/Shanghai');
+
+        self::loadConf(EASYSWOOLE_ROOT . '/Config');
+    }
+
+    public static function loadConf($ConfPath)
+    {
+        $Conf  = Config::getInstance();
+        $files = File::scanDirectory($ConfPath);
+
+        if (!is_array($files)) {
+            return;
+        }
+        foreach ($files['files'] as $file) {
+            $data = require_once $file;
+            $Conf->setConf(strtolower(basename($file, '.php')), (array)$data);
+        }
     }
 
     public static function mainServerCreate(EventRegister $register)
@@ -30,6 +48,8 @@ class EasySwooleEvent implements Event
         // TODO: Implement mainServerCreate() method.
         $conf = new \EasySwoole\Mysqli\Config(Config::getInstance()->getConf('MYSQL'));
         Di::getInstance()->set('MYSQL', Mysqli::class, $conf);
+
+        Di::getInstance()->set('REDIS', Redis::getInstance());
     }
 
     public static function onRequest(Request $request, Response $response): bool

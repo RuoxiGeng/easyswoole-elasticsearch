@@ -33,7 +33,7 @@ class Base extends Controller
     /**
      * @param \Throwable $throwable
      */
-    protected function onException(\Throwable $throwable): void {
-        $this->writeJson(400, '请求不合法');
-    }
+//    protected function onException(\Throwable $throwable): void {
+//        $this->writeJson(400, '请求不合法');
+//    }
 }

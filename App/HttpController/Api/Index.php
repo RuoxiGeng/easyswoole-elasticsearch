@@ -9,6 +9,7 @@
 namespace App\HttpController\Api;
 
 use EasySwoole\Component\Di;
+use App\Lib\Redis\Redis;
 
 class Index extends Base
 {
@@ -28,6 +29,17 @@ class Index extends Base
     public function getVideo() {
         $db = Di::getInstance()->get("MYSQL");
         $res = $db->where("id", 1)->getOne("test");
+        return $this->writeJson(200, 'OK', $res);
+    }
+
+    public function getRedis() {
+//        $redis = new \Redis();
+//        $redis->connect("127.0.0.1", 6379, 5);
+
+//        $redis->set("geng12345", 100);
+
+//        $res = Redis::getInstance()->get("geng12345");
+        $res = Di::getInstance()->get("REDIS")->get("geng12345");
         return $this->writeJson(200, 'OK', $res);
     }
 }
