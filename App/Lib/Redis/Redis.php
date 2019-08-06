@@ -22,7 +22,8 @@ class Redis {
         }
 
         try {
-            $redisConfig = \EasySwoole\EasySwoole\Config::getInstance()->getConf("redis");
+//            $redisConfig = \EasySwoole\EasySwoole\Config::getInstance()->getConf("redis");
+            $redisConfig = \Yaconf::get('redis');
             $this->redis = new \Redis();
             $res = $this->redis->connect($redisConfig['host'], $redisConfig['port'], $redisConfig['time_out']);
         } catch (\Exception $e) {
@@ -44,5 +45,31 @@ class Redis {
         }
 
         return $this->redis->get($key);
+    }
+
+    /**
+     * @param $key
+     * @return string
+     */
+    public function lPop($key) {
+        if(empty($key)) {
+            return '';
+        }
+
+        return $this->redis->lPop($key);
+    }
+
+    /**
+     * 消息生产者 进入消息队列
+     * @param $key
+     * @param $value
+     * @return bool|int|string
+     */
+    public function rPush($key, $value) {
+        if(empty($key)) {
+            return '';
+        }
+
+        return $this->redis->rPush($key, $value);
     }
 }

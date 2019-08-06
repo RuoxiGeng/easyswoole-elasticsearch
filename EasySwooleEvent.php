@@ -9,6 +9,7 @@
 namespace EasySwoole\EasySwoole;
 
 
+use App\Lib\Process\ConsumerTest;
 use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -50,6 +51,11 @@ class EasySwooleEvent implements Event
         Di::getInstance()->set('MYSQL', Mysqli::class, $conf);
 
         Di::getInstance()->set('REDIS', Redis::getInstance());
+
+        $allNum = 3;
+        for ($i = 0 ;$i < $allNum;$i++){
+            ServerManager::getInstance()->getSwooleServer()->addProcess((new ConsumerTest("geng_consumer_test_{$i}"))->getProcess());
+        }
     }
 
     public static function onRequest(Request $request, Response $response): bool

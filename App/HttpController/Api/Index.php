@@ -42,4 +42,15 @@ class Index extends Base
         $res = Di::getInstance()->get("REDIS")->get("geng12345");
         return $this->writeJson(200, 'OK', $res);
     }
+
+    public function yaconf() {
+        $res = \Yaconf::get('redis');
+        return $this->writeJson(200, 'OK', $res);
+    }
+
+    public function pub() {
+        $params = $this->request()->getRequestParam();
+
+        Di::getInstance()->get('REDIS')->rPush('geng_list_test', $params['f']);
+    }
 }
