@@ -36,3 +36,46 @@ Stack trace:
 #4 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\EasySwoole\Command\CommandRunner->run(Array)
 #5 {main}
   thrown at file:/Users/ruoxigeng/imooc_es/EasySwooleEvent.php line:57]
+[2019-08-08 23:24:36][DEBUG][ERROR] : [Uncaught Error: Class 'Yaconf' not found in /Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php:26
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/component/src/Singleton.php(19): App\Lib\Redis\Redis->__construct()
+#1 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(53): App\Lib\Redis\Redis::getInstance()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->createServer()
+#4 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandContainer.php(46): EasySwoole\EasySwoole\Command\DefaultCommand\Start->exec(Array)
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(50): EasySwoole\EasySwoole\Command\CommandContainer->hook('start', Array)
+#6 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\Easy at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:26]
+[2019-08-08 23:25:10][DEBUG][ERROR] : [Uncaught Error: Class 'Yaconf' not found in /Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php:26
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/component/src/Singleton.php(19): App\Lib\Redis\Redis->__construct()
+#1 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(53): App\Lib\Redis\Redis::getInstance()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->createServer()
+#4 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandContainer.php(46): EasySwoole\EasySwoole\Command\DefaultCommand\Start->exec(Array)
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(50): EasySwoole\EasySwoole\Command\CommandContainer->hook('start', Array)
+#6 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\Easy at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:26]
+[2019-08-08 23:25:39][DEBUG][ERROR] : [Uncaught Error: Class 'Yaconf' not found in /Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php:26
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/component/src/Singleton.php(19): App\Lib\Redis\Redis->__construct()
+#1 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(53): App\Lib\Redis\Redis::getInstance()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->createServer()
+#4 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandContainer.php(46): EasySwoole\EasySwoole\Command\DefaultCommand\Start->exec(Array)
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(50): EasySwoole\EasySwoole\Command\CommandContainer->hook('start', Array)
+#6 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\Easy at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:26]
+[2019-08-08 23:27:57][DEBUG][ERROR] : [syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or function (T_FUNCTION) or const (T_CONST) or \\ (T_NS_SEPARATOR) at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:15]
+[2019-08-08 23:34:10][DEBUG][ERROR] : [Uncaught Error: Class 'Yaconf' not found in /Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php:26
+Stack trace:
+#0 /Users/ruoxigeng/imooc_es/vendor/easyswoole/component/src/Singleton.php(19): App\Lib\Redis\Redis->__construct()
+#1 /Users/ruoxigeng/imooc_es/EasySwooleEvent.php(53): App\Lib\Redis\Redis::getInstance()
+#2 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Core.php(119): EasySwoole\EasySwoole\EasySwooleEvent::mainServerCreate(Object(EasySwoole\EasySwoole\Swoole\EventRegister))
+#3 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/DefaultCommand/Start.php(42): EasySwoole\EasySwoole\Core->createServer()
+#4 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandContainer.php(46): EasySwoole\EasySwoole\Command\DefaultCommand\Start->exec(Array)
+#5 /Users/ruoxigeng/imooc_es/vendor/easyswoole/easyswoole/src/Command/CommandRunner.php(50): EasySwoole\EasySwoole\Command\CommandContainer->hook('start', Array)
+#6 /Users/ruoxigeng/imooc_es/easyswoole(24): EasySwoole\Easy at file:/Users/ruoxigeng/imooc_es/App/Lib/Redis/Redis.php line:26]
+[2019-08-08 23:36:03][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
+[2019-08-08 23:39:09][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
+[2019-08-08 23:39:10][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
+[2019-08-08 23:39:10][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
+[2019-08-08 23:39:10][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
+[2019-08-10 21:40:07][DEBUG][ERROR] : [Call to undefined method Swoole\Http\Request::files() at file:/Users/ruoxigeng/imooc_es/App/Lib/Upload/Base.php line:14]
