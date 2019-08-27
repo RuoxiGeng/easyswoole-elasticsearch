@@ -79,3 +79,4 @@ Stack trace:
 [2019-08-08 23:39:10][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
 [2019-08-08 23:39:10][DEBUG][ERROR] : [Class 'Yaconf' not found at file:/Users/ruoxigeng/imooc_es/App/HttpController/Api/Index.php line:47]
 [2019-08-10 21:40:07][DEBUG][ERROR] : [Call to undefined method Swoole\Http\Request::files() at file:/Users/ruoxigeng/imooc_es/App/Lib/Upload/Base.php line:14]
+[2019-08-13 21:14:02][DEBUG][WARNING] : [array_keys() expects parameter 1 to be array, null given at file:/Users/ruoxigeng/imooc_es/App/Lib/Upload/Base.php line:22]
