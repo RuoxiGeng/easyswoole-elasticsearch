@@ -17,6 +17,12 @@ use EasySwoole\Http\AbstractInterface\Controller;
  */
 class Base extends Controller
 {
+    /**
+     * 放一些请求的参数数据
+     * @var array
+     */
+    public $params = [];
+
     public function index(){
 
     }
@@ -27,7 +33,19 @@ class Base extends Controller
      * @return bool|null
      */
     public function onRequest(?string $action): ?bool {
+        $this->getParams();
         return true;
+    }
+
+    /**
+     * 获取 params
+     */
+    public function getParams() {
+        $params = $this->request()->getRequestParam();
+        $params['page'] = !empty($params['page']) ? intval($params['page']) : 1;
+        $params['size'] = !empty($params['size']) ? intval($params['size']) : 5;
+
+        $this->params = $params;
     }
 
     /**

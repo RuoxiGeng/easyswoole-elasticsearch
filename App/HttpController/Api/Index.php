@@ -8,11 +8,42 @@
 
 namespace App\HttpController\Api;
 
+use EasySwoole\Http\Message\Status;
 use EasySwoole\Component\Di;
 use App\Lib\Redis\Redis;
+use App\Model\Video as VideoModel;
 
 class Index extends Base
 {
+    public function index() {
+
+    }
+
+    public function lists() {
+        $condition = [];
+        if(!empty($this->params['cat_id'])) {
+            $condition['cat_id'] = intval($this->params['cat_id']);
+        }
+        //1 查询条件下 count
+        //2 lists
+        try {
+            $videoModel = new VideoModel();
+            $data = $videoModel->getVideoData($condition, $this->params['page'], $this->params['size']);
+        }catch (\Exception $e) {
+            //错误信息写入日志
+            return $this->writeJson(Status::CODE_BAD_REQUEST, '服务异常');
+        }
+
+        if(!empty($data['lists'])) {
+            foreach ($data['lists'] as &$list) {
+                $list['create_time'] = date("Ymd H:i:s", $list['create_time']);
+                //时间转换
+                $list['video_duration'] = gmstrftime("%H:%M:%S", $list['video_duration']);
+            }
+        }
+        return $this->writeJson(Status::CODE_OK, 'OK', $data);
+    }
+
     public function video() {
         $data = [
             'id' => 1,
