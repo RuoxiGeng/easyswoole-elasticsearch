@@ -35,6 +35,19 @@ class Redis {
         }
     }
 
+    public function set($key, $value, $time = 0) {
+        if(empty($key)) {
+            return '';
+        }
+        if(is_array($value)) {
+            $value = json_encode($value);
+        }
+        if(!$time) {
+            return $this->redis->set($key, $value);
+        }
+        return $this->redis->setex($key, $time, $value);
+    }
+
     /**
      * @param $key
      * @return bool|string

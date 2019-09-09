@@ -40,4 +40,25 @@ class Video extends Base{
         ];
         return $data;
     }
+
+    /**
+     * @param array $condition
+     * @param int $size
+     * @return mixed
+     */
+    public function getVideoCacheData($condition = [], $size = 1000) {
+        if(!empty($condition['cat_id'])) {
+            $this->db->where("cat_id", $condition['cat_id']);
+        }
+
+        $this->db->where("status", 1);
+        if(!empty($size)) {
+            $this->db->pageLimit = $size;
+        }
+
+        $this->db->orderBy("id", "desc");
+        $res = $this->db->paginate($this->tableName, 1);
+
+        return $res;
+    }
 }

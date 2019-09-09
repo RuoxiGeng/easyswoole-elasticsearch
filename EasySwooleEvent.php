@@ -18,6 +18,9 @@ use EasySwoole\Http\Response;
 use EasySwoole\Mysqli\Mysqli;
 use App\Lib\Redis\Redis;
 use EasySwoole\Utility\File;
+use EasySwoole\EasySwoole\Crontab\Crontab;
+use App\Task\TaskOne;
+use EasySwoole\Component\Timer;
 
 class EasySwooleEvent implements Event
 {
@@ -56,6 +59,17 @@ class EasySwooleEvent implements Event
         for ($i = 0 ;$i < $allNum;$i++){
             ServerManager::getInstance()->getSwooleServer()->addProcess((new ConsumerTest("geng_consumer_test_{$i}"))->getProcess());
         }
+
+//        Crontab::getInstance()->addTask(TaskOne::class);
+
+        $register->add(EventRegister::onWorkerStart, function (\swoole_server $server, $workerId) {
+            if($workerId == 0) {
+                Timer::getInstance()->loop(1000 * 2, function() use($workerId) {
+//                  Crontab::getInstance()->addTask(TaskOne::class);
+                    var_dump($workerId);
+                });
+            }
+        });
     }
 
     public static function onRequest(Request $request, Response $response): bool

@@ -45,7 +45,28 @@ class Base extends Controller
         $params['page'] = !empty($params['page']) ? intval($params['page']) : 1;
         $params['size'] = !empty($params['size']) ? intval($params['size']) : 5;
 
+        $params['from'] = ($params['page']-1) * $params['size'];
+
         $this->params = $params;
+    }
+
+    /**
+     * @param $count
+     * @param $data
+     * @return array
+     */
+    public function getPagingDatas($count, $data) {
+        $totalPage = ceil($count / $this->params['size']);
+
+        $data = $data ?? [];
+        $data = array_splice($data, $this->params['from'], $this->params['size']);
+
+        return [
+            'total_page' => $totalPage,
+            'page_size' => $this->params['page'],
+            'count' => intval($count),
+            'lists' => $data,
+        ];
     }
 
     /**

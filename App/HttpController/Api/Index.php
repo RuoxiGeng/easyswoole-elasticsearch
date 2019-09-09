@@ -12,6 +12,8 @@ use EasySwoole\Http\Message\Status;
 use EasySwoole\Component\Di;
 use App\Lib\Redis\Redis;
 use App\Model\Video as VideoModel;
+use EasySwoole\FastCache\Cache;
+use App\Lib\Cache\Video as VideoCache;
 
 class Index extends Base
 {
@@ -19,7 +21,11 @@ class Index extends Base
 
     }
 
-    public function lists() {
+    /**
+     * 第一套方案 原始 读取mysql
+     * @return bool
+     */
+    public function lists0() {
         $condition = [];
         if(!empty($this->params['cat_id'])) {
             $condition['cat_id'] = intval($this->params['cat_id']);
@@ -42,6 +48,24 @@ class Index extends Base
             }
         }
         return $this->writeJson(Status::CODE_OK, 'OK', $data);
+    }
+
+    /**
+     * 第二套方案 直接读取静态化json数据
+     * @return bool
+     */
+    public function lists() {
+        $catId = !empty($this->params['cat_id']) ? intval($this->params['cat_id']) : 0;
+
+        try {
+            $videoData = (new VideoCache())->getCache($catId);
+        }catch (\Exception $e) {
+            return $this->writeJson(Status::CODE_BAD_REQUEST, '请求失败');
+        }
+
+        $count = count($videoData);
+
+        return $this->writeJson(Status::CODE_OK, 'OK', $this->getPagingDatas($count, $videoData));
     }
 
     public function video() {
