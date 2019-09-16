@@ -9,6 +9,7 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
     public static $files = array (
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -18,10 +19,20 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
             'Symfony\\Polyfill\\Php56\\' => 23,
             'SuperClosure\\' => 13,
         ),
+        'R' => 
+        array (
+            'React\\Promise\\' => 14,
+        ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'PhpParser\\' => 10,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Stream\\' => 18,
+            'GuzzleHttp\\Ring\\' => 16,
         ),
         'F' => 
         array (
@@ -29,6 +40,7 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
         ),
         'E' => 
         array (
+            'Elasticsearch\\' => 14,
             'EasySwoole\\Validate\\' => 20,
             'EasySwoole\\Utility\\' => 19,
             'EasySwoole\\Trigger\\' => 19,
@@ -66,6 +78,14 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/superclosure/src',
         ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -74,9 +94,21 @@ class ComposerStaticInit2a48661cf3ddc75409459ef925004d5b
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'GuzzleHttp\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/streams/src',
+        ),
+        'GuzzleHttp\\Ring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/ringphp/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Elasticsearch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
         ),
         'EasySwoole\\Validate\\' => 
         array (

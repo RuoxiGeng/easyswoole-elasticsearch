@@ -6,6 +6,7 @@
     },
     "require": {
         "easyswoole/easyswoole": "3.x",
-        "easyswoole/mysqli": "^1.2"
+        "easyswoole/mysqli": "^1.2",
+        "elasticsearch/elasticsearch": "~6.0"
     }
 }

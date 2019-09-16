@@ -47,14 +47,34 @@ class Video extends Base
         TaskManager::async(function() use($id) {
             // 逻辑
             //sleep(10);
-            // redis
-
+            // redis记录视频播放数
             $res = Di::getInstance()->get("REDIS")->zincrby(\Yaconf::get("redis.video_play_key"), 1, $id);
-
             // 按天记录
         });
 
         return $this->writeJson(200, 'OK', $video);
+    }
+
+    /**
+     * 排行接口 总排行
+     * @return array
+     * @throws \Throwable
+     */
+    public function rank() {
+        $res = Di::getInstance()->get("REDIS")->zrevrange(\Yaconf::get("redis.video_play_key"), 0, 1, "withscores");
+        return $this->writeJson(200, "OK", $res);
+    }
+
+    public function love() {
+        $videoId = intval($this->params['videoId']);
+        if(empty($videoId)) {
+            return $this->writeJson(Status::CODE_BAD_REQUEST, "参数不合法");
+        }
+        // 跟据这个视频id查询是否存在该视频  todo
+        //
+        //
+        $res = Di::getInstance()->get("REDIS")->zincrby(\Yaconf::get("redis.video_love"), 1, $videoId);
+
     }
 
     public function add() {

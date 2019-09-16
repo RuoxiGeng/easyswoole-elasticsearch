@@ -85,4 +85,43 @@ class Redis {
 
         return $this->redis->rPush($key, $value);
     }
+
+    /**
+     * @param $key
+     * @param $number
+     * @param $member
+     * @return bool|float
+     */
+    public function zincrby($key, $number, $member) {
+        if(empty($key) || empty($member)) {
+            return false;
+        }
+
+        return $this->redis->zincrby($key, $number, $member);
+    }
+
+    /**
+     * @param $key
+     * @param $start
+     * @param $stop
+     * @param $type
+     * @return array|bool
+     */
+//    public function zrevrange($key, $start, $stop, $type) {
+//        if(empty($key)) {
+//            return false;
+//        }
+//
+//        return $this->redis->zrevrange($key, $start, $stop, $type);
+//    }
+
+    /**
+     * 当类中不存在该方法时候，直接调用call 实现调用底层redis相关的方法
+     * @param $name
+     * @param $arguments
+     * @return mixed
+     */
+    public function __call($name, $arguments) {
+        return $this->redis->$name(...$arguments);
+    }
 }

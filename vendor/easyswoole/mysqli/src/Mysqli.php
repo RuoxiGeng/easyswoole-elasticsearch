@@ -1131,8 +1131,11 @@ class Mysqli
         } else {
             $data = [];
         }
-
+        $start = round(microtime(true),true);
         $ret = $stmt->execute($data,$this->config->getTimeout());
+        if($this->config->getOnQuery()){
+            call_user_func($this->config->getOnQuery(),$stmt,$this->getLastQuery(),$data,$start);
+        }
         /*
          * 重置下列成员变量
          */
@@ -1563,7 +1566,7 @@ class Mysqli
             $this->traceQueryStartTime = microtime(true);
         }
         //prepare超时时间用链接时间
-        $res = $this->coroutineMysqlClient->prepare($this->query,$this->config->getConnectTimeout());
+        $res = $this->coroutineMysqlClient->prepare($this->query,$this->config->getTimeout());
         if ($res instanceof Statement) {
             return $res;
         }
