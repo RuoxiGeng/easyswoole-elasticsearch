@@ -10,6 +10,7 @@ namespace EasySwoole\EasySwoole;
 
 
 use App\Lib\Process\ConsumerTest;
+use App\Model\Es\EsClient;
 use EasySwoole\Component\Di;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
@@ -18,9 +19,9 @@ use EasySwoole\Http\Response;
 use EasySwoole\Mysqli\Mysqli;
 use App\Lib\Redis\Redis;
 use EasySwoole\Utility\File;
-use EasySwoole\EasySwoole\Crontab\Crontab;
-use App\Task\TaskOne;
 use EasySwoole\Component\Timer;
+use App\Lib\Pool\MysqlPool;
+use EasySwoole\Component\Pool\PoolManager;
 
 class EasySwooleEvent implements Event
 {
@@ -31,6 +32,11 @@ class EasySwooleEvent implements Event
         date_default_timezone_set('Asia/Shanghai');
 
         self::loadConf(EASYSWOOLE_ROOT . '/Config');
+
+        $mysqlConfig = \Yaconf::get("mysql");
+        //注册musql连接池
+        PoolManager::getInstance()->register(MysqlPool::class, $mysqlConfig['POOL_MAX_NUM']);
+
     }
 
     public static function loadConf($ConfPath)
@@ -54,6 +60,7 @@ class EasySwooleEvent implements Event
         Di::getInstance()->set('MYSQL', Mysqli::class, $conf);
 
         Di::getInstance()->set('REDIS', Redis::getInstance());
+        Di::getInstance()->set('ES', EsClient::getInstance());
 
         $allNum = 3;
         for ($i = 0 ;$i < $allNum;$i++){

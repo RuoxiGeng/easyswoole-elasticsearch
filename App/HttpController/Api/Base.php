@@ -55,11 +55,17 @@ class Base extends Controller
      * @param $data
      * @return array
      */
-    public function getPagingDatas($count, $data) {
+    public function getPagingDatas($count, $data, $isSplice=1) {
         $totalPage = ceil($count / $this->params['size']);
+        if($totalPage > 100) {
+            $totalPage = 100;
+        }
 
         $data = $data ?? [];
-        $data = array_splice($data, $this->params['from'], $this->params['size']);
+
+        if($isSplice == 1) {
+            $data = array_splice($data, $this->params['from'], $this->params['size']);
+        }
 
         return [
             'total_page' => $totalPage,
